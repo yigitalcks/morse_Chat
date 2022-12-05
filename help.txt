@@ -1,0 +1,16 @@
+Verwendung:
+
+Ohne make:
+./morseChat 
+./morseChat --file <file name> 
+./morseChat --text <text> (der Text muss aus einzige Wort besteht)
+./morseChat --help
+
+Mit make:
+make
+make file filename=<file name>
+make text text=<text>
+make help
+
+Nur kompilieren:
+make compile
