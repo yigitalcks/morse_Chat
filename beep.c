@@ -1,33 +1,29 @@
-#ifdef _WIN32
-    #include <windows.h>
-#else
-    #include <unistd.h>
-#endif
-
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 #include "beep.h"
-#include "pattern.h"
+
+#if defined(WIN32) || defined(_WIN32) || defined(__WIN32__) || defined(__NT__)
+    void delay(DWORD mSecond) {
+        Sleep(mSecond);
+    }
+    void beep_(DWORD freq, DWORD ms) {
+        Beep(freq, ms);
+    }
+#elif
+    void delay(unsigned int mSecond) {
+        sleep(mSecond);
+    } 
+    void beep_(int freq, int ms) {
+        beep(freq, ms);
+    } 
+#endif
 
 void ditdah(char dat){ // dit ve dah seslendirici
     switch(dat){
         case '.':
-
-            #ifdef _WIN32
-                Beep(500, MU);
-            #else
-                system(PLAY1);
-            #endif
+            beep_(500, MU);
             printf(".");
             break;
         case '-':
-
-            #ifdef _WIN32
-                Beep(500, 3*MU);
-            #else
-                system(PLAY3);
-            #endif
+            beep_(500, 3*MU);
             printf("-");
             break;
     }
@@ -38,194 +34,189 @@ void LV(char let){ // harf seslendirici
     switch(let){
         case 'a':
         case 'A':
-            strcpy(letter, A);
+            strcpy(letter, patterns[0]);
             break;    
         case 'b':
         case 'B':
-            strcpy(letter, B);
+            strcpy(letter, patterns[1]);
             break;
         case 'c':
         case 'C':
-            strcpy(letter, C);
+            strcpy(letter, patterns[2]);
             break;
         case 'd':
         case 'D':
-            strcpy(letter, D);
+            strcpy(letter, patterns[3]);
             break;
         case 'e':
         case 'E':
-            strcpy(letter, E);
+            strcpy(letter, patterns[4]);
             break;
         case 'f':
         case 'F':
-            strcpy(letter, F);
+            strcpy(letter, patterns[5]);
             break;
         case 'g':
         case 'G':
-            strcpy(letter, G);
+            strcpy(letter, patterns[6]);
             break;
         case 'h':
         case 'H':
-            strcpy(letter, H);
+            strcpy(letter, patterns[7]);
             break;
         case 'i':
         case 'I':
-            strcpy(letter, I);
+            strcpy(letter, patterns[8]);
             break;
-        
         case 'j':
         case 'J':
-            strcpy(letter, J);
+            strcpy(letter, patterns[9]);
             break;
         case 'k':
         case 'K':
-            strcpy(letter, K);
+            strcpy(letter, patterns[10]);
             break;
         case 'l':
         case 'L':
-            strcpy(letter, L);
+            strcpy(letter, patterns[11]);
             break;
         case 'm':
         case 'M':
-            strcpy(letter, M);
+            strcpy(letter, patterns[12]);
             break;
         case 'n':
         case 'N':
-            strcpy(letter, N);
+            strcpy(letter, patterns[13]);
             break;
         case 'o':
         case 'O':
-            strcpy(letter, O);
+            strcpy(letter, patterns[14]);
             break;
         case 'p':
         case 'P':
-            strcpy(letter, P);
+            strcpy(letter, patterns[15]);
             break;
         case 'q':
         case 'Q':
-            strcpy(letter, Q);
+            strcpy(letter, patterns[16]);
             break;
         case 'r':
         case 'R':
-            strcpy(letter, R);
+            strcpy(letter, patterns[17]);
             break;
         case 's':
         case 'S':
-            strcpy(letter, S);
+            strcpy(letter, patterns[18]);
             break;
         case 't':
         case 'T':
-            strcpy(letter, T);
+            strcpy(letter, patterns[19]);
             break;
         case 'u':
         case 'U':
-            strcpy(letter, U);
+            strcpy(letter, patterns[20]);
             break;
         case 'v':
         case 'V':
-            strcpy(letter, V);
+            strcpy(letter, patterns[21]);
             break;
         case 'w':
         case 'W':
-            strcpy(letter, W);
+            strcpy(letter, patterns[22]);
             break;
         case 'x':
         case 'X':
-            strcpy(letter, X);
+            strcpy(letter, patterns[23]);
             break;
         case 'y':
         case 'Y':
-            strcpy(letter, Y);
+            strcpy(letter, patterns[24]);
             break;
         case 'z':
         case 'Z':
-            strcpy(letter, Z);
+            strcpy(letter, patterns[25]);
             break;
         case '0':
-            strcpy(letter, R0);
+            strcpy(letter, patterns[26]);
             break;
         case '1':
-            strcpy(letter, R1);
+            strcpy(letter, patterns[27]);
             break;
         case '2':
-            strcpy(letter, R2);
+            strcpy(letter, patterns[28]);
             break;
         case '3':
-            strcpy(letter, R3);
+            strcpy(letter, patterns[29]);
             break;
         case '4':
-            strcpy(letter, R4);
+            strcpy(letter, patterns[30]);
             break;
         case '5':
-            strcpy(letter, R5);
+            strcpy(letter, patterns[31]);
             break;
         case '6':
-            strcpy(letter, R6);
+            strcpy(letter, patterns[32]);
             break;
         case '7':
-            strcpy(letter, R7);
+            strcpy(letter, patterns[33]);
             break;
         case '8':
-            strcpy(letter, R8);
+            strcpy(letter, patterns[34]);
             break;
         case '9':
-            strcpy(letter, R9);
+            strcpy(letter, patterns[35]);
             break;
         case '&':
-            strcpy(letter, AMPER);
+            strcpy(letter, patterns[36]);
             break;
         case '\'':
-            strcpy(letter, APOS);
+            strcpy(letter, patterns[37]);
             break;
         case '@':
-            strcpy(letter, AT);
+            strcpy(letter, patterns[38]);
             break;
         case ')':
-            strcpy(letter, CBRACKET);
+            strcpy(letter, patterns[39]);
             break;
         case '(':
-            strcpy(letter, OBRACKET);
+            strcpy(letter, patterns[40]);
             break;
         case ':':
-            strcpy(letter, COLON);
+            strcpy(letter, patterns[41]);
             break;
         case ',':
-            strcpy(letter, COMMA);
+            strcpy(letter, patterns[42]);
             break;
         case '=':
-            strcpy(letter, EQ);
+            strcpy(letter, patterns[43]);
             break;
         case '!':
-            strcpy(letter, EXCLAMATION);
+            strcpy(letter, patterns[44]);
             break;
         case '.':
-            strcpy(letter, FULLS);
+            strcpy(letter, patterns[45]);
             break;
         case '-':
-            strcpy(letter, HYPEN);
+            strcpy(letter, patterns[46]);
             break;    
         case '+':
-            strcpy(letter, PLUS);
+            strcpy(letter, patterns[47]);
             break;
         case '"':
-            strcpy(letter, QUOT);
+            strcpy(letter, patterns[48]);
             break;
         case '?':
-            strcpy(letter, QUEST);
+            strcpy(letter, patterns[49]);
             break;
         case '/':
-            strcpy(letter, SLASH);
+            strcpy(letter, patterns[50]);
             break;
     }
 
     for(int i = 0; i < strlen(letter); i++){
         ditdah(letter[i]);
         if(i < strlen(letter) - 1) {
-        #ifdef _WIN32
-            Sleep(MU);
-        #else
-            sleep(MU/1000);
-        #endif    
+            delay(MU);
         }
     }
 }
@@ -234,12 +225,8 @@ void WV(char *WORD){ // kelime seslendirici
     for(int i = 0; i < strlen(WORD); i++) {
         LV(WORD[i]);
         if (i < strlen(WORD) - 1) {
-        #ifdef _WIN32
-            Sleep(3*MU);
-        #else
-            sleep(3*MU/1000);
-        #endif    
-        printf(" ");
+            delay(3*MU);
+            printf(" ");
         }
     }
 }

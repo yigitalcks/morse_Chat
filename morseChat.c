@@ -1,15 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 #include "beep.h"
-#include "failcase.h"
-#include "isspace.h"
-
-#ifdef _WIN32
-    #include <windows.h>
-#else
-    #include <unistd.h>
-#endif
 
 int main(int argc, char *argv[]) {
     char x[31];
@@ -44,11 +33,7 @@ int main(int argc, char *argv[]) {
                 WV(words[j]);
                 printf(" %s", words[j]);
                 if(j < (counter - 2)){
-                    #ifdef _WIN32
-                        Sleep(7*MU);
-                    #else
-                        sleep((7*MU)/1000);
-                    #endif
+                    delay(7*MU);
                     printf("\n");
                 }
             }
@@ -109,11 +94,7 @@ int main(int argc, char *argv[]) {
                             WV(words[j]);
                             printf(" %s", words[j]);
                             if(j < (counter - 1)){
-                                #ifdef _WIN32
-                                    Sleep(7*MU);
-                                #else
-                                    sleep((7*MU)/1000);
-                                #endif
+                                delay(7*MU);
                                 printf("\n");
                             }
                         }
