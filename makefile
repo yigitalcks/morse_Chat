@@ -16,7 +16,7 @@ else
 	endif
 endif
 
-terminal: $(DEP) morseChat execute
+terminal: $(DEP) morseChat clean execute
 help: $(DEP) morseChat clean exechelp
 text: $(DEP) morseChat clean exectext
 file: $(DEP) morseChat clean execfile
@@ -32,7 +32,7 @@ isspace.o: isspace.c
 	@$(CC) -c $^ -o $@
 
 clean:
-	@$(RM) *.o
+	@cmd //C del *.o  $(RM) *.o
 execute:
 	@$(EXE)
 execfile:
