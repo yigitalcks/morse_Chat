@@ -1,4 +1,5 @@
 CC = gcc
+LBFLAGS = -I./include -L./lib
 
 ifeq ($(OS), Windows_NT)
 	RM = del
@@ -23,7 +24,7 @@ file: $(DEP) morseChat clean execfile
 compile: $(DEP) morseChat clean
 		
 morseChat: morseChat.c failcase.o beep.o isspace.o
-	@$(CC) $^ -o $@
+	@$(CC) $(LBFLAGS) $^ -lbass -o $@
 failcase.o: failcase.c
 	@$(CC) -c $^ -o $@
 beep.o: beep.c

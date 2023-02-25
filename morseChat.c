@@ -6,6 +6,8 @@ int main(int argc, char *argv[]) {
     int i = 0;
     int counter = 0;
 
+    BASS_Init_();
+
     switch(argc) {
         case 1:
             printf("Text to be converted(Each word must not be longer than 30 characters): ");
@@ -120,4 +122,5 @@ int main(int argc, char *argv[]) {
             free(words[j]);
         }
     }
+    BASS_Free_();
 }
