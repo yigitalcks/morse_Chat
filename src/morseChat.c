@@ -1,12 +1,10 @@
-#include "beep.h"
+#include "../include/beep.h"
 
 int main(int argc, char *argv[]) {
     char x[31];
     char *words[51];
     int i = 0;
     int counter = 0;
-
-    BASS_Init_();
 
     switch(argc) {
         case 1:
@@ -122,5 +120,4 @@ int main(int argc, char *argv[]) {
             free(words[j]);
         }
     }
-    BASS_Free_();
 }

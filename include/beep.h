@@ -6,15 +6,12 @@
 #include <string.h>
 #include "failcase.h"
 #include "isspace.h"
-#include "include/bass.h"
 
 #define MU 150
 
 #if defined(WIN32) || defined(_WIN32) || defined(__WIN32__) || defined(__NT__) // if windows
 #include <windows.h>
 
-void BASS_Init_();
-void BASS_Free_();
 void delay(DWORD mSecond);
 void beep_(DWORD freq, DWORD ms);
 

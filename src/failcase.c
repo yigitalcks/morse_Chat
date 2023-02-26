@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "failcase.h"
+#include "../include/failcase.h"
 
 void fail(int failtype) {
     switch(failtype){

@@ -1,5 +1,4 @@
 CC = gcc
-LBFLAGS = -I./include -L./lib
 
 ifeq ($(OS), Windows_NT)
 	RM = del
@@ -23,17 +22,17 @@ text: $(DEP) morseChat clean exectext
 file: $(DEP) morseChat clean execfile
 compile: $(DEP) morseChat clean
 		
-morseChat: morseChat.c failcase.o beep.o isspace.o
-	@$(CC) $(LBFLAGS) $^ -lbass -o $@
-failcase.o: failcase.c
+morseChat: ./src/morseChat.c ./src/failcase.o ./src/beep.o ./src/isspace.o
+	@$(CC) $^ -o $@
+./src/failcase.o: ./src/failcase.c
 	@$(CC) -c $^ -o $@
-beep.o: beep.c
+./src/beep.o: ./src/beep.c
 	@$(CC) -c $^ -o $@
-isspace.o: isspace.c
+./src/isspace.o: ./src/isspace.c
 	@$(CC) -c $^ -o $@
 
 clean:
-	@cmd //C del *.o  $(RM) *.o
+	@cmd //C del ".\src\*.o"
 execute:
 	@$(EXE)
 execfile:
@@ -45,3 +44,4 @@ exechelp:
 
 sox:
 	sudo apt -y install sox
+	

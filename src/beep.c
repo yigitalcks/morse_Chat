@@ -1,4 +1,4 @@
-#include "beep.h"
+#include "../include/beep.h"
 
 char* patterns[51] = {".-",
 ".---",
@@ -54,15 +54,6 @@ char* patterns[51] = {".-",
 
 
 #if defined(WIN32) || defined(_WIN32) || defined(__WIN32__) || defined(__NT__)
-    void BASS_Init_() {
-        BASS_Init(-1, 44100, 0, NULL, NULL);
-        BASS_SetConfig(BASS_CONFIG_GVOL_STREAM, 10000);
-    }
-
-    void BASS_Free_() {
-        BASS_Free();
-    }
-
     void delay(DWORD mSecond) {
         Sleep(mSecond);
     }

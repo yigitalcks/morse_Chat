@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include "../include/isspace.h"
 
 int isSpace(char *word){ // --text option'ı ile tek kelime alındığından emin olmak için
     char x;

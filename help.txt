@@ -1,14 +1,8 @@
 Verwendung:
 
-without make:
-./morseChat 
-./morseChat --file <file name> 
-./morseChat --text <text>
-./morseChat --help
-
 with make:
 make
-make file filename=<file name>
+make file filename=<file name> // absolute path or relative path to morseChat.c file
 make text text=<text>
 make help
 
