@@ -2,7 +2,7 @@
 #include <string.h>
 #include "../include/isspace.h"
 
-int isSpace(char *word){ // --text option'ı ile tek kelime alındığından emin olmak için
+int isSpace(char *word){ // to ensure that a single word is entered from CL with --text option
     char x;
     for (int i = 0; i < strlen(word); i++){
         x = word[i];

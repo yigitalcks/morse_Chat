@@ -69,7 +69,7 @@ char* patterns[51] = {".-",
     } 
 #endif
 
-void ditdah(char dat){ // dit ve dah seslendirici
+void ditdah(char dat){ // dit and dahs vocalizer
     switch(dat){
         case '.':
             beep_(500, MU);
@@ -82,7 +82,7 @@ void ditdah(char dat){ // dit ve dah seslendirici
     }
 }
 
-void LV(char let){ // harf seslendirici
+void LV(char let){ // letter vocalizer
     char letter[25];
     switch(let){
         case 'a':
@@ -274,7 +274,7 @@ void LV(char let){ // harf seslendirici
     }
 }
 
-void WV(char *WORD){ // kelime seslendirici
+void WV(char *WORD){ // word vocalizer
     for(int i = 0; i < strlen(WORD); i++) {
         LV(WORD[i]);
         if (i < strlen(WORD) - 1) {
