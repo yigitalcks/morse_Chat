@@ -1,4 +1,5 @@
 CC = gcc
+INC = -I./include
 
 ifeq ($(OS), Windows_NT)
 	RM = del
@@ -16,20 +17,22 @@ else
 	endif
 endif
 
-terminal: $(DEP) morseChat clean execute
+terminal: $(DEP) all clean execute
 help: $(DEP) morseChat clean exechelp
 text: $(DEP) morseChat clean exectext
 file: $(DEP) morseChat clean execfile
 compile: $(DEP) morseChat clean
 		
 morseChat: ./src/morseChat.c ./src/failcase.o ./src/beep.o ./src/isspace.o
-	@$(CC) $^ -o $@
+	@$(CC) INC $^ -o $@
+all: ./src/morseChat.c ./src/failcase.c ./src/beep.c ./src/isspace.c
+	@$(CC) INC $^ -o morseChat
 ./src/failcase.o: ./src/failcase.c
-	@$(CC) -c $^ -o $@
+	@$(CC) -c INC $^ -o $@
 ./src/beep.o: ./src/beep.c
-	@$(CC) -c $^ -o $@
+	@$(CC) -c INC $^ -o $@
 ./src/isspace.o: ./src/isspace.c
-	@$(CC) -c $^ -o $@
+	@$(CC) -c INC $^ -o $@
 
 clean:
 	@cmd //C del ".\src\*.o"

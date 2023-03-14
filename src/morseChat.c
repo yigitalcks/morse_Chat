@@ -1,4 +1,4 @@
-#include "../include/beep.h"
+#include "beep.h"
 
 int main(int argc, char *argv[]) {
     char x[31];
