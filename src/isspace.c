@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <string.h>
-#include "isspace.h"
+#include "..\include\isspace.h"
 
 int isSpace(char *word){ // to ensure that a single word is entered from CL with --text option
     char x;

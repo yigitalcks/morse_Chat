@@ -1,4 +1,4 @@
-#include "beep.h"
+#include "..\include\beep.h"
 
 char* patterns[51] = {".-",
 ".---",
